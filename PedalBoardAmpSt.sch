@@ -14,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Amplifier_Audio:TDA7293 U1
+L PedalBoardAmpSt-rescue:TDA7293-Amplifier_Audio U1
 U 1 1 5D589487
 P 3650 3150
 F 0 "U1" H 4094 3104 50  0000 L CNN
@@ -30,7 +30,7 @@ U 1 1 5D58A914
 P 5250 6250
 F 0 "C6" H 5368 6296 50  0000 L CNN
 F 1 "10uf" H 5368 6205 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D13.0mm_P5.00mm" H 5288 6100 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 5288 6100 50  0001 C CNN
 F 3 "~" H 5250 6250 50  0001 C CNN
 	1    5250 6250
 	1    0    0    -1  
@@ -118,7 +118,7 @@ U 1 1 5D58EB97
 P 5700 6250
 F 0 "C8" H 5818 6296 50  0000 L CNN
 F 1 "10uf" H 5818 6205 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D13.0mm_P5.00mm" H 5738 6100 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 5738 6100 50  0001 C CNN
 F 3 "~" H 5700 6250 50  0001 C CNN
 	1    5700 6250
 	1    0    0    -1  
@@ -200,15 +200,15 @@ Wire Wire Line
 Wire Wire Line
 	3950 5950 4100 5950
 $Comp
-L Switch:SW_SPST SW1
+L Switch:SW_SPDT SW1
 U 1 1 5D59524E
 P 3500 5600
 F 0 "SW1" H 3500 5835 50  0000 C CNN
 F 1 "SDBY_MUTE" H 3500 5744 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 3500 5600 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 3500 5600 50  0001 C CNN
 F 3 "~" H 3500 5600 50  0001 C CNN
 	1    3500 5600
-	1    0    0    -1  
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
 	3700 5600 3950 5600
@@ -257,32 +257,8 @@ F 3 "" H 9850 750 50  0001 C CNN
 	1    9850 750 
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:+5V #PWR08
-U 1 1 5D59A512
-P 3050 5450
-F 0 "#PWR08" H 3050 5300 50  0001 C CNN
-F 1 "+5V" H 3065 5623 50  0000 C CNN
-F 2 "" H 3050 5450 50  0001 C CNN
-F 3 "" H 3050 5450 50  0001 C CNN
-	1    3050 5450
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
-	3050 5600 3050 5450
-Wire Wire Line
-	3300 5600 3050 5600
-$Comp
-L power:+48V #PWR09
-U 1 1 5D59C116
-P 3150 3550
-F 0 "#PWR09" H 3150 3400 50  0001 C CNN
-F 1 "+48V" H 3165 3723 50  0000 C CNN
-F 2 "" H 3150 3550 50  0001 C CNN
-F 3 "" H 3150 3550 50  0001 C CNN
-	1    3150 3550
-	1    0    0    -1  
-$EndComp
+	3300 5500 3050 5500
 $Comp
 L power:-48V #PWR012
 U 1 1 5D59C8FC
@@ -316,17 +292,6 @@ Wire Wire Line
 	5850 1350 6050 1350
 Wire Wire Line
 	6050 1350 6050 1400
-$Comp
-L Connector:Conn_01x02_Male J3
-U 1 1 5D5A151D
-P 4950 3250
-F 0 "J3" H 4922 3132 50  0000 R CNN
-F 1 "out" H 4922 3223 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 4950 3250 50  0001 C CNN
-F 3 "~" H 4950 3250 50  0001 C CNN
-	1    4950 3250
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	4050 3150 4500 3150
 $Comp
@@ -364,8 +329,6 @@ F 3 "" H 2650 3750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3100 3650 3150 3650
-Wire Wire Line
 	3450 3550 3450 3650
 $Comp
 L Device:C C3
@@ -401,12 +364,7 @@ F 3 "~" H 6650 1350 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	3150 3650 3150 3550
-Wire Wire Line
-	3450 3650 3150 3650
-Connection ~ 3150 3650
-Wire Wire Line
-	3550 3550 3550 4050
+	3550 3550 3550 3650
 $Comp
 L power:+48V #PWR017
 U 1 1 5D5CDE63
@@ -425,8 +383,8 @@ L Device:CP C5
 U 1 1 5D5D0E9E
 P 4050 3600
 F 0 "C5" V 4305 3600 50  0000 C CNN
-F 1 "20uf" V 4214 3600 50  0000 C CNN
-F 2 "Capacitor_THT:CP_Radial_D13.0mm_P5.00mm" H 4088 3450 50  0001 C CNN
+F 1 "22uf" V 4214 3600 50  0000 C CNN
+F 2 "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm" H 4088 3450 50  0001 C CNN
 F 3 "~" H 4050 3600 50  0001 C CNN
 	1    4050 3600
 	0    -1   -1   0   
@@ -521,20 +479,18 @@ Wire Wire Line
 	2500 3250 3250 3250
 Connection ~ 2500 3250
 $Comp
-L Connector:Conn_01x02_Male J1
+L Connector:Screw_Terminal_01x02 J1
 U 1 1 5D5E51A2
-P 650 3350
-F 0 "J1" H 622 3232 50  0000 R CNN
-F 1 "R-IN" H 622 3323 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 650 3350 50  0001 C CNN
-F 3 "~" H 650 3350 50  0001 C CNN
-	1    650  3350
-	1    0    0    1   
+P 650 3250
+F 0 "J1" H 622 3132 50  0000 R CNN
+F 1 "R-IN" H 622 3223 50  0000 R CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 650 3250 50  0001 C CNN
+F 3 "~" H 650 3250 50  0001 C CNN
+	1    650  3250
+	-1   0    0    -1  
 $EndComp
 Wire Wire Line
 	850  3250 2100 3250
-Wire Wire Line
-	850  3350 850  3650
 Wire Wire Line
 	850  3650 2500 3650
 Connection ~ 2500 3650
@@ -546,7 +502,7 @@ U 1 1 5D5F04E9
 P 1550 2450
 F 0 "C1" V 1295 2450 50  0000 C CNN
 F 1 "22uf" V 1386 2450 50  0000 C CNN
-F 2 "Capacitor_THT:CP_Radial_D13.0mm_P5.00mm" H 1588 2300 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm" H 1588 2300 50  0001 C CNN
 F 3 "~" H 1550 2450 50  0001 C CNN
 	1    1550 2450
 	0    1    1    0   
@@ -632,15 +588,15 @@ Wire Wire Line
 	11000 750  11000 850 
 Connection ~ 5700 5600
 $Comp
-L Connector:Conn_01x04_Male J2
+L Connector:Screw_Terminal_01x03 J2
 U 1 1 5D66C798
-P 750 1250
-F 0 "J2" H 858 1531 50  0000 C CNN
-F 1 "DC_IN" H 858 1440 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 750 1250 50  0001 C CNN
-F 3 "~" H 750 1250 50  0001 C CNN
-	1    750  1250
-	1    0    0    -1  
+P 750 1350
+F 0 "J2" H 858 1631 50  0000 C CNN
+F 1 "DC_IN" H 858 1540 50  0000 C CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00002_1x03_P5.00mm_Horizontal" H 750 1350 50  0001 C CNN
+F 3 "~" H 750 1350 50  0001 C CNN
+	1    750  1350
+	-1   0    0    -1  
 $EndComp
 $Comp
 L power:-48V #PWR04
@@ -675,21 +631,6 @@ F 3 "" H 1100 1600 50  0001 C CNN
 	1    1100 1600
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:+5V #PWR03
-U 1 1 5D673076
-P 1450 800
-F 0 "#PWR03" H 1450 650 50  0001 C CNN
-F 1 "+5V" H 1465 973 50  0000 C CNN
-F 2 "" H 1450 800 50  0001 C CNN
-F 3 "" H 1450 800 50  0001 C CNN
-	1    1450 800 
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	950  1150 1450 1150
-Wire Wire Line
-	1450 1150 1450 800 
 Wire Wire Line
 	950  1250 1650 1250
 Wire Wire Line
@@ -747,7 +688,7 @@ F 3 "~" H 600 7600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Amplifier_Audio:TDA7293 U2
+L PedalBoardAmpSt-rescue:TDA7293-Amplifier_Audio U2
 U 1 1 5D63CB1F
 P 8900 3050
 F 0 "U2" H 9344 3004 50  0000 L CNN
@@ -765,33 +706,11 @@ Wire Wire Line
 	9000 3250 9000 4150
 Wire Wire Line
 	9000 4150 9100 4150
-$Comp
-L power:+48V #PWR020
-U 1 1 5D63CBAE
-P 8400 3450
-F 0 "#PWR020" H 8400 3300 50  0001 C CNN
-F 1 "+48V" H 8415 3623 50  0000 C CNN
-F 2 "" H 8400 3450 50  0001 C CNN
-F 3 "" H 8400 3450 50  0001 C CNN
-	1    8400 3450
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	8800 2650 8800 2500
 Connection ~ 8800 2500
 Wire Wire Line
 	8800 2500 8800 2250
-$Comp
-L Connector:Conn_01x02_Male J5
-U 1 1 5D63CBD2
-P 10200 3150
-F 0 "J5" H 10172 3032 50  0000 R CNN
-F 1 "L-OUT" H 10172 3123 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 10200 3150 50  0001 C CNN
-F 3 "~" H 10200 3150 50  0001 C CNN
-	1    10200 3150
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	9300 3050 9750 3050
 $Comp
@@ -825,8 +744,6 @@ F 3 "" H 7900 3650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8350 3550 8400 3550
-Wire Wire Line
 	8700 3450 8700 3550
 $Comp
 L Device:C C12
@@ -840,19 +757,14 @@ F 3 "~" H 8200 3550 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	8400 3550 8400 3450
-Wire Wire Line
-	8700 3550 8400 3550
-Connection ~ 8400 3550
-Wire Wire Line
-	8800 3450 8800 3950
+	8800 3450 8800 3550
 $Comp
 L Device:CP C14
 U 1 1 5D63CC29
 P 9300 3500
 F 0 "C14" V 9555 3500 50  0000 C CNN
-F 1 "20uf" V 9464 3500 50  0000 C CNN
-F 2 "Capacitor_THT:CP_Radial_D13.0mm_P5.00mm" H 9338 3350 50  0001 C CNN
+F 1 "22uf" V 9464 3500 50  0000 C CNN
+F 2 "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm" H 9338 3350 50  0001 C CNN
 F 3 "~" H 9300 3500 50  0001 C CNN
 	1    9300 3500
 	0    -1   -1   0   
@@ -947,20 +859,18 @@ Wire Wire Line
 	7750 3150 8500 3150
 Connection ~ 7750 3150
 $Comp
-L Connector:Conn_01x02_Male J4
+L Connector:Screw_Terminal_01x02 J4
 U 1 1 5D63CC78
-P 5900 3250
-F 0 "J4" H 5872 3132 50  0000 R CNN
-F 1 "L-IN" H 5872 3223 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5900 3250 50  0001 C CNN
-F 3 "~" H 5900 3250 50  0001 C CNN
-	1    5900 3250
-	1    0    0    1   
+P 5900 3150
+F 0 "J4" H 5872 3032 50  0000 R CNN
+F 1 "L-IN" H 5872 3123 50  0000 R CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 5900 3150 50  0001 C CNN
+F 3 "~" H 5900 3150 50  0001 C CNN
+	1    5900 3150
+	-1   0    0    -1  
 $EndComp
 Wire Wire Line
 	6100 3150 7350 3150
-Wire Wire Line
-	6100 3250 6100 3550
 Wire Wire Line
 	6100 3550 7750 3550
 Connection ~ 7750 3550
@@ -972,7 +882,7 @@ U 1 1 5D63CC87
 P 6800 2400
 F 0 "C10" V 6545 2400 50  0000 C CNN
 F 1 "22uf" V 6636 2400 50  0000 C CNN
-F 2 "Capacitor_THT:CP_Radial_D13.0mm_P5.00mm" H 6838 2250 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D10.0mm_P5.00mm" H 6838 2250 50  0001 C CNN
 F 3 "~" H 6800 2400 50  0001 C CNN
 	1    6800 2400
 	0    1    1    0   
@@ -1075,4 +985,63 @@ Text GLabel 8550 3950 0    50   Input ~ 0
 +48vFilter
 Wire Wire Line
 	8550 3950 8800 3950
+Wire Wire Line
+	3100 3650 3450 3650
+Wire Wire Line
+	8350 3550 8700 3550
+Wire Wire Line
+	8700 3550 8800 3550
+Connection ~ 8700 3550
+Connection ~ 8800 3550
+Wire Wire Line
+	8800 3550 8800 3950
+Wire Wire Line
+	3450 3650 3550 3650
+Connection ~ 3450 3650
+Connection ~ 3550 3650
+Wire Wire Line
+	3550 3650 3550 4050
+Wire Wire Line
+	850  3350 850  3650
+Wire Wire Line
+	6100 3250 6100 3550
+$Comp
+L Connector:Screw_Terminal_01x02 J5
+U 1 1 5FF3FD9C
+P 10200 3150
+F 0 "J5" H 10250 2900 50  0000 R CNN
+F 1 "L-OUT" H 10350 3300 50  0000 R CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 10200 3150 50  0001 C CNN
+F 3 "~" H 10200 3150 50  0001 C CNN
+	1    10200 3150
+	1    0    0    1   
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J3
+U 1 1 5FF47FA5
+P 4950 3250
+F 0 "J3" H 5000 3000 50  0000 R CNN
+F 1 "R-OUT" H 5050 3450 50  0000 R CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00001_1x02_P5.00mm_Horizontal" H 4950 3250 50  0001 C CNN
+F 3 "~" H 4950 3250 50  0001 C CNN
+	1    4950 3250
+	1    0    0    1   
+$EndComp
+Text GLabel 3050 5500 0    50   Input ~ 0
++48vFilter
+$Comp
+L power:GND #PWR0101
+U 1 1 5FF107F6
+P 2950 5850
+F 0 "#PWR0101" H 2950 5600 50  0001 C CNN
+F 1 "GND" H 2955 5677 50  0000 C CNN
+F 2 "" H 2950 5850 50  0001 C CNN
+F 3 "" H 2950 5850 50  0001 C CNN
+	1    2950 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3300 5700 2950 5700
+Wire Wire Line
+	2950 5700 2950 5850
 $EndSCHEMATC
